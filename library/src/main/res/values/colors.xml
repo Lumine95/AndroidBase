@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="black_gray">#29292c</color>
+    <color name="title_blue">#00A2FF</color>
+    <color name="color_54">#545454</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#ff0000</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent70">#70000000</color>
+    <color name="transparent55">#55000000</color>
+    <color name="transparent40">#40000000</color>
+    <color name="transparent30">#30000000</color>
+    <color name="transparent10">#10000000</color>
+
+    <color name="black">#000000</color>
+    <color name="gray">#aaaaaa</color>
+    <color name="gray2">#222222</color>
+    <color name="gray4">#444444</color>
+    <color name="hint">#909090</color>
+    <color name="blue">#52A6EF</color>
+
+    <color name="color_B">#BBBBBB</color>
+    <color name="color_C">#CCCCCC</color>
+    <color name="color_D">#DDDDDD</color>
+    <color name="color_E">#EEEEEE</color>
+    <color name="blue_common">#4DC9E3</color>
+    <color name="color_054F">#054F89</color>
+    <color name="color_9a7">#9a78d2</color>
+    <color name="color_93c">#93cf5d</color>
+    <color name="color_3b">#3BB9D3</color>
+    <color name="color_ffb">#ffb733</color>
+
+
+    <!--<color name="color_7">#777777</color>-->
+    <!--<color name="color_6">#666666</color>-->
+
+    <color name="color_f7">#F7F8F7</color>
+    <color name="color_f6">#F6F6F6</color>
+    <color name="color_f6ab">#F6ab00</color>
+    <color name="color_e6">#e6e6e6</color>
+    <color name="color_f7f">#F7F7F7</color>
+
+    <color name="crop__button_bar">#f3f3f3</color>
+    <color name="crop__button_text">#666666</color>
+    <color name="crop__selector_pressed">#1a000000</color>
+    <color name="crop__selector_focused">#77000000</color>
+
+    <!--白色透明度-->
+    <color name="transparency_white_60">#E0FFFFFF</color>
+
+    <color name="list_view_color">#d8d8d8</color>
+
+
+    <color name="col_4ba634">#4ba634</color>
+    <color name="col_c9">#c9c9c9</color>
+    <color name="color_3">#333333</color>
+    <color name="col_e0">#e0e0e0</color>
+    <color name="color_9">#999999</color>
+    <color name="color_6">#666666</color>
+    <color name="col_f6ab">#f6ab00</color>
+    <color name="col_efee">#efeef4</color>
+    <color name="col_f0">#f0f0f0</color>
+    <color name="col_98">#98FB98</color>
+
+
+    <color name="col_t9">#333333</color>
+    <color name="col_t3">#999999</color>
+    <color name="col_tb">#bbbbbb</color>
+    <color name="col_fa">#fafafa</color>
+
+    <color name="col_58c">#58cd5a</color>       <!--mhy工作追踪-->
+    <color name="col_f69">#f69c54</color>
+    <color name="col_cea">#cea16d</color>
+    <color name="col_aaa">#aaaaaa</color>
+
+    <color name="col_4543">#45433E</color>     <!--7号 底部工具来文字-->
+    <color name="color_3333">#333333</color>
+    <color name="color_ff5b">#ff5b5b</color>
+
+</resources>
