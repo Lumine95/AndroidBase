@@ -9,6 +9,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -43,13 +44,26 @@ public class U {
      */
     public static void showToast(String msg) {
         if (MyApplication.getAppContext() != null) {
-            if (toast == null) {
-                toast = Toast.makeText(MyApplication.getAppContext(), msg, Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-            } else {
-                toast.setText(msg);
+            try {
+                if (toast == null) {
+                    toast = Toast.makeText(MyApplication.getAppContext(), msg, Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                } else {
+                    toast.setText(msg);
+                }
+                toast.show();
+            } catch (Exception e) {
+                // 解决在子线程中调用Toast的异常情况处理
+                Looper.prepare();
+                if (toast == null) {
+                    toast = Toast.makeText(MyApplication.getAppContext(), msg, Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                } else {
+                    toast.setText(msg);
+                }
+                toast.show();
+                Looper.loop();
             }
-            toast.show();
         }
     }
 
