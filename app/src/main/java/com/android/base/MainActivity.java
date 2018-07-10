@@ -4,14 +4,19 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 
 import com.android.library.utils.CleanCacheUtil;
 import com.android.library.utils.PermissionUtils;
 import com.android.library.utils.U;
+import com.android.library.view.CircleImageView;
+import com.android.library.view.actionsheet.ActionSheetDialog;
+import com.android.library.view.actionsheet.OnOperItemClickL;
 
 public class MainActivity extends AppCompatActivity {
     private final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
@@ -23,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button btn = (Button) findViewById(R.id.btn_test);
+        CircleImageView btn = (CircleImageView) findViewById(R.id.iv_circle);
         btnCache = (Button) findViewById(R.id.btn_clean_cache);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,7 +41,24 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void test() {
-        U.showToast("test");
+        String[] stringItems = new String[]{"选项1", "选项2", "选项3"};
+        final ActionSheetDialog dialog = new ActionSheetDialog(this, stringItems, null);
+        dialog.widthScale(0.92f)
+                .layoutAnimation(null)
+                .isTitleShow(false)
+                .dividerHeight(0.5f)
+                .cornerRadius(5)
+                .itemTextColor(Color.parseColor("#444444"))
+                .cancelText(Color.parseColor("#444444"))
+                .itemPressColor(Color.parseColor("#f5f5f5"))
+                .show();
+        dialog.setOnOperItemClickL(new OnOperItemClickL() {
+            @Override
+            public void onOperItemClick(AdapterView<?> parent, View view, int position, long id) {
+                U.showToast(position + "");
+                dialog.dismiss();
+            }
+        });
     }
 
     public void showLoadingDialog(View view) {
