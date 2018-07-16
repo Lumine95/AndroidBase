@@ -33,14 +33,18 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                test();
+                likeButton();
             }
         });
         getCacheSize();
     }
 
+    private void likeButton() {
 
-    private void test() {
+    }
+
+
+    private void testActionSheet() {
         String[] stringItems = new String[]{"选项1", "选项2", "选项3"};
         final ActionSheetDialog dialog = new ActionSheetDialog(this, stringItems, null);
         dialog.widthScale(0.92f)
