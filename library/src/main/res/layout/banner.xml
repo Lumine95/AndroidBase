@@ -8,7 +8,7 @@
     tools:ignore="MissingDefaultResource">
 
     <com.ms.banner.view.BannerViewPager
-        android:id="@id/bannerViewPager"
+        android:id="@+id/bannerViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipChildren="false" />
