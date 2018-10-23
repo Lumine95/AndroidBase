@@ -45,8 +45,8 @@
         android:id="@+id/btn_clean_cache"
         android:layout_width="150dp"
         android:layout_height="37dp"
-        android:layout_marginRight="25dp"
         android:layout_marginTop="60dp"
+        android:layout_marginRight="25dp"
         android:background="#cbdada"
         android:onClick="cleanCache"
         app:layout_constraintRight_toRightOf="parent"
@@ -69,8 +69,8 @@
         android:id="@+id/btn_permissions"
         android:layout_width="150dp"
         android:layout_height="37dp"
-        android:layout_marginRight="25dp"
         android:layout_marginTop="40dp"
+        android:layout_marginRight="25dp"
         android:background="#cbdada"
         android:onClick="permissionRequest"
         android:tag="multi"
@@ -110,4 +110,14 @@
         app:siShape="@mipmap/heart"
         app:small_shine_color="#CC9999"
         app:small_shine_offset_angle="20" />
+
+    <com.android.library.view.banner.Banner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:indicator_drawable_selected="@drawable/selected_radius"
+        app:indicator_drawable_unselected="@drawable/unselected_radius"
+        app:indicator_height="8dp"
+        app:indicator_margin="4dp"
+        app:indicator_width="8dp" />
 </android.support.constraint.ConstraintLayout>

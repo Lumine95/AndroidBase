@@ -1,6 +1,7 @@
 package com.android.library.utils;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -17,9 +18,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.library.MyApplication;
 import com.android.library.view.CustomProgressDialog;
-import com.android.library.view.UIHelper;
 
 import java.security.MessageDigest;
 import java.util.Iterator;
@@ -35,6 +34,7 @@ public class U {
 
     private static Toast toast;
     private static CustomProgressDialog loadingDialog;
+    private static Application mAppContext;
 
     /**
      * Toast
@@ -42,9 +42,9 @@ public class U {
      * @param msg
      */
     public static void showToast(String msg) {
-        if (MyApplication.getAppContext() != null) {
+        if (mAppContext != null) {
             if (toast == null) {
-                toast = Toast.makeText(MyApplication.getAppContext(), msg, Toast.LENGTH_SHORT);
+                toast = Toast.makeText(mAppContext, msg, Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER, 0, 0);
             } else {
                 toast.setText(msg);
@@ -59,7 +59,7 @@ public class U {
      * @param argEditText
      */
     public static void hideSoftKeyboard(EditText argEditText) {
-        InputMethodManager imm = (InputMethodManager) MyApplication.getAppContext().getSystemService
+        InputMethodManager imm = (InputMethodManager) mAppContext.getSystemService
                 (Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(argEditText.getWindowToken(), 0);
     }
@@ -86,7 +86,7 @@ public class U {
      */
     public static String getVersionName() {
         try {
-            PackageInfo packageInfo = MyApplication.getAppContext().getPackageManager().getPackageInfo(MyApplication.getAppContext().getPackageName(), PackageManager.GET_CONFIGURATIONS);
+            PackageInfo packageInfo = mAppContext.getPackageManager().getPackageInfo(mAppContext.getPackageName(), PackageManager.GET_CONFIGURATIONS);
             return packageInfo.versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -143,7 +143,7 @@ public class U {
      * @param value
      */
     public static void savePreferences(String key, Object value) {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MyApplication.getAppContext());
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mAppContext);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         if (value instanceof String) {
@@ -170,7 +170,7 @@ public class U {
      */
     public static Object getPreferences(String key, Object defaultObject) {
         String type = defaultObject.getClass().getSimpleName();
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(MyApplication.getAppContext());
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(mAppContext);
         if ("String".equals(type)) {
             return sp.getString(key, (String) defaultObject);
         } else if ("Integer".equals(type)) {
@@ -290,27 +290,11 @@ public class U {
     }
 
     /**
-     * 加载进度框
+     * 初始化，获取application
      *
-     * @param context tip:这里的context不能通过getApplicationContext()获取
-     * @param text
+     * @param application
      */
-    public static void showLoadingDialog(Context context, String text) {
-        if (loadingDialog == null) {
-            loadingDialog = UIHelper.newNormalProgressDialog(context, text);
-            loadingDialog.getDialog().setCancelable(false);
-            loadingDialog.getDialog().setCanceledOnTouchOutside(true);
-        }
-        loadingDialog.show();
+    public static void init(Application application) {
+        mAppContext = application;
     }
-
-    /**
-     * 隐藏进度框
-     */
-    public static void dismissLoadingDialog() {
-        if (loadingDialog != null) {
-            loadingDialog.dismiss();
-        }
-    }
-
 }
