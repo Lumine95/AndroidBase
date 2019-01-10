@@ -111,13 +111,4 @@
         app:small_shine_color="#CC9999"
         app:small_shine_offset_angle="20" />
 
-    <com.android.library.view.banner.Banner
-        android:id="@+id/banner"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        app:indicator_drawable_selected="@drawable/selected_radius"
-        app:indicator_drawable_unselected="@drawable/unselected_radius"
-        app:indicator_height="8dp"
-        app:indicator_margin="4dp"
-        app:indicator_width="8dp" />
-</android.support.constraint.ConstraintLayout>
+ </android.support.constraint.ConstraintLayout>

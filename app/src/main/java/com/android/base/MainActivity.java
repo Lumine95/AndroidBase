@@ -3,12 +3,10 @@ package com.android.base;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -19,12 +17,6 @@ import com.android.library.utils.U;
 import com.android.library.view.CircleImageView;
 import com.android.library.view.actionsheet.ActionSheetDialog;
 import com.android.library.view.actionsheet.OnOperItemClickL;
-import com.android.library.view.banner.Banner;
-import com.android.library.view.banner.holder.BannerViewHolder;
-import com.android.library.view.banner.holder.HolderCreator;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
@@ -37,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         CircleImageView btn = (CircleImageView) findViewById(R.id.iv_circle);
-        Banner banner = (Banner) findViewById(R.id.banner);
         btnCache = (Button) findViewById(R.id.btn_clean_cache);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,29 +38,6 @@ public class MainActivity extends AppCompatActivity {
         });
         getCacheSize();
 
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            list.add(i + "");
-        }
-
-        banner.setAutoPlay(true).setPages(list, new HolderCreator<BannerViewHolder>() {
-            @Override
-            public BannerViewHolder createViewHolder() {
-                return new CustomViewHolder();
-            }
-        }).start();
-    }
-
-    class CustomViewHolder implements BannerViewHolder<String> {
-        @Override
-        public View createView(Context context) {
-            View view = LayoutInflater.from(context).inflate(R.layout.custom_progress_dialog, null);
-            return view;
-        }
-
-        @Override
-        public void onBind(Context context, int position, String data) {
-        }
     }
 
     private void likeButton() {
